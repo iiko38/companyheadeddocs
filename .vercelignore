@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+webapp/node_modules/
+webapp/modal_env/
+
+# Source files (built into webapp/dist/)
+webapp/src/
+*.config.js
+*.config.ts
+webapp/*.config.js
+webapp/*.config.ts
+webapp/tsconfig*.json
+webapp/eslint.config.js
+webapp/postcss.config.js
+webapp/tailwind.config.js
+webapp/components.json
+
+# Development files
+.env*
+.vercelignore
+
+# Build artifacts (except webapp/dist/)
+!webapp/dist/
+
+# Documentation
+README.md
+old/
+scripts/
+tests/
+samples/
+*.md
+
+# Other
+*.log
+.DS_Store

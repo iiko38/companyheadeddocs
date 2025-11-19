@@ -112,8 +112,8 @@ function App() {
           </h1>
           <p className="text-center text-slate-600 mt-2" style={{ fontFamily: 'Instrument Sans, sans-serif' }}>
             Transform meeting transcripts into documented minutes
-          </p>
-        </div>
+        </p>
+      </div>
       </header>
 
       {/* Main Content */}
