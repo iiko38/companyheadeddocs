@@ -48,8 +48,18 @@ def _build_context(meeting: MeetingModel) -> dict:
 
 
 def _build_items(sections: list[Section]) -> list[dict]:
+    """
+    Convert sections to template items.
+    NOTE: Currently only the first action per section is rendered.
+    Additional actions are ignored. Supporting multiple actions per section
+    is a future enhancement.
+    """
     items: list[dict] = []
     for section in sections:
+        # Skip contract-dates-only section (we already surface this above)
+        if "contract" in section.title.lower():
+            continue
+
         first_action = section.actions[0] if section.actions else None
         body = section.title
         if section.notes:

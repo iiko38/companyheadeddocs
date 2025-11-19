@@ -1,5 +1,6 @@
 import base64
 import io
+import logging
 import uuid
 
 from fastapi import FastAPI, File, Form, UploadFile
@@ -10,6 +11,12 @@ from models import MeetingMeta, MeetingModel
 from renderer import render_docx
 from template_registry import get_template
 from transcript_loader import load_transcript
+
+# Configure basic logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
 
 
 app = FastAPI(title="Meeting Transcript to DOCX")
@@ -38,6 +45,10 @@ async def transform(
     location: str = Form(...),
     file: UploadFile = File(...),
 ):
+    """
+    Transform a transcript file + meeting metadata into structured minutes
+    and a company-headed DOCX, returned as base64 in JSON.
+    """
     request_id = str(uuid.uuid4())
     template = get_template(template_id)
 
@@ -70,6 +81,10 @@ async def transform_download(
     location: str = Form(...),
     file: UploadFile = File(...),
 ):
+    """
+    Transform a transcript file + meeting metadata into structured minutes
+    and a company-headed DOCX, returned as a file download.
+    """
     template = get_template(template_id)
 
     file_bytes = await file.read()
@@ -97,4 +112,17 @@ async def transform_download(
 
 @app.get("/health")
 async def health() -> dict:
+    """
+    Health check endpoint returning service status.
+    Validates basic configuration and template availability.
+    """
+    from config import settings
+
+    # Validate settings can be instantiated and have required fields
+    _ = settings.openai_api_key
+    _ = settings.openai_model
+
+    # Validate default template can be loaded
+    _ = get_template("progress_minutes_v1")
+
     return {"status": "ok"}

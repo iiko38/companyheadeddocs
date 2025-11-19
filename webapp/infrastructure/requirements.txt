@@ -1,3 +1,4 @@
+# Modal deployment requirements
 fastapi
 uvicorn[standard]
 pydantic>=2,<3
@@ -6,4 +7,4 @@ python-docx
 docxtpl
 openai>=1.30.0
 python-multipart
-pytest
+python-dotenv
