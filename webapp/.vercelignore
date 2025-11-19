@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+modal_env/
+
+# Source files (built into dist/)
+src/
+*.config.js
+*.config.ts
+tsconfig*.json
+eslint.config.js
+postcss.config.js
+tailwind.config.js
+components.json
+
+# Development files
+.env*
+.vercelignore
+
+# Build artifacts (except dist/)
+!dist/
+
+# Documentation
+README.md
+infrastructure/
+
+# Other
+*.log
+.DS_Store
