@@ -3,8 +3,7 @@ node_modules/
 webapp/node_modules/
 webapp/modal_env/
 
-# Source files (built into webapp/dist/)
-webapp/src/
+# Note: webapp/src/ is needed for Vite build, don't exclude it
 *.config.js
 *.config.ts
 webapp/*.config.js

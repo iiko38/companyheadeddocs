@@ -2,8 +2,7 @@
 node_modules/
 modal_env/
 
-# Source files (built into dist/)
-src/
+# Config files (not needed for build, Vite handles them)
 *.config.js
 *.config.ts
 tsconfig*.json
