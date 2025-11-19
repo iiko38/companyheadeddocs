@@ -3,15 +3,9 @@ node_modules/
 webapp/node_modules/
 webapp/modal_env/
 
-# Note: webapp/src/ is needed for Vite build, don't exclude it
-*.config.js
-*.config.ts
-webapp/*.config.js
-webapp/*.config.ts
-webapp/tsconfig*.json
+# Note: webapp/src/ and config files are needed for Vite build
+# Allow vite.config.ts, tsconfig.json, tailwind.config.js, postcss.config.js for build
 webapp/eslint.config.js
-webapp/postcss.config.js
-webapp/tailwind.config.js
 webapp/components.json
 
 # Development files

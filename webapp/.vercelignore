@@ -2,13 +2,9 @@
 node_modules/
 modal_env/
 
-# Config files (not needed for build, Vite handles them)
-*.config.js
-*.config.ts
-tsconfig*.json
+# Config files - allow vite.config.ts and other build-required configs
+# vite.config.ts is needed for path alias resolution
 eslint.config.js
-postcss.config.js
-tailwind.config.js
 components.json
 
 # Development files
