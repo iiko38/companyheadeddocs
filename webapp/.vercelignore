@@ -14,6 +14,9 @@ components.json
 # Build artifacts (except dist/)
 !dist/
 
+# Source files - explicitly include
+!src/
+
 # Documentation
 README.md
 infrastructure/
